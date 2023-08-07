@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/ruta', function () {
-    return "Hola nueva ruta";
-});
-Route::post('/ruta/post', function () {
-    return "POST OK";
-});
+// Route::get('/ruta', function () {
+//     return "Hola nueva ruta";
+// });
+// Route::post('/ruta/post', function () {
+//     return "POST OK";
+// });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
