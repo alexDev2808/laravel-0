@@ -8,8 +8,8 @@
           <div class="card-header">Crear Nuevo Contacto</div>
 
           <div class="card-body">
-            <form method="POST" action="/contact?test=1">
-              {{-- @csrf --}}
+            <form method="POST" action="/contact">
+              @csrf
 
               <div class="row mb-3">
                 <label for="name"
