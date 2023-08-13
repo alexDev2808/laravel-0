@@ -8,7 +8,8 @@
           <div class="card-header">Crear Nuevo Contacto</div>
 
           <div class="card-body">
-            <form method="POST" action="{{ route('contacts.store') }}">
+            <form method="POST"
+              action="{{ route('contacts.store') }}">
               @csrf
 
               <div class="row mb-3">
@@ -17,9 +18,16 @@
 
                 <div class="col-md-6">
                   <input id="name" type="text"
-                    class="form-control"
-                    name="name"
-                    required autocomplete="name" autofocus>
+                    class="form-control
+                    @error('name') is-invalid @enderror"
+                    name="name" value="{{ old('name') }}"
+                    autocomplete="name" autofocus>
+
+                  @error('name')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
                 </div>
               </div>
 
@@ -30,9 +38,8 @@
 
                 <div class="col-md-6">
                   <input id="phone_number" type="tel"
-                    class="form-control"
-                    name="phone_number"
-                    required autocomplete="phone_number">
+                    class="form-control" name="phone_number"
+                    autocomplete="phone_number">
                 </div>
               </div>
 
