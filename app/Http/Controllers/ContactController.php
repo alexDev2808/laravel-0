@@ -37,11 +37,12 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        if (is_null($request->get('name'))) {
-            return back()->withErrors([
-                "name" => 'This field is required',
-            ]);
-        }
+        $request->validate([
+            "name" => 'required',
+            "email" => 'required|email',
+            "phone_number" => ['required', 'digits:10'],
+            "age" => ['required', 'numeric', 'min:1', 'max:255'],
+        ]);
 
         return response("Contact created");
     }
