@@ -67,6 +67,10 @@
                 </li>
               @endif
             @else
+            <li class="nav-item">
+                <a class="btn btn-dark me-4"
+                  href="{{ route('contacts.index') }}">Mis contactos</a>
+              </li>
               <li class="nav-item">
                 <a class="btn btn-primary me-4"
                   href="{{ route('contacts.create') }}">Crear Contacto</a>
